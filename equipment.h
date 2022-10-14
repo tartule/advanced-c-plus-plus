@@ -7,7 +7,10 @@
 
 
 class Equipment {
-
+    virtual void processMessage() = 0;
+    virtual void addSubEquipment() = 0;
+    virtual void removeSubEquipment() = 0;
+    virtual void showSubEquipment() = 0;
 };
 
 
