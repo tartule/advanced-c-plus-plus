@@ -5,7 +5,8 @@ This is a mini C++ project where we simulated a local internet messaging system 
 ## Presentation of the disign patern
 
 1. Why does it exist ? 
-When dealing with <g> Tree-structured data <\g>, one difficulty is that branches and leaves are treated differently, which causes more errors. The solution is an interface that allows treating complex and primitive objects uniformly.
+                           
+When dealing with Tree-structured data, one difficulty is that branches and leaves are treated differently, which causes more errors. The solution is an interface that allows treating complex and primitive objects uniformly.
 
 2. What is it used for ?
  
