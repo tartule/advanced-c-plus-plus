@@ -11,7 +11,7 @@ Computer::Computer(string ipAddress) {
 }
 
 Computer::~Computer(){
-    std::cout << "Destroying a computer and its IpAddress is"  + this-> IpAddress << endl;
+    std::cout << "Destroying a computer and its IpAddress is "  + this-> IpAddress << endl;
 }
 void Computer::processMessage(string message) {
     cout << IpAddress << "got a message" << message << endl;

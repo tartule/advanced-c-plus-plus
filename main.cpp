@@ -16,16 +16,16 @@ int main() {
     Computer computer4("192.168.1.9");
     Computer computer5("192.168.1.10");
     Computer computer6("192.168.1.11");
-    routerRoot.addSubEquipment(router2);
-    routerRoot.addSubEquipment(router3);
-    routerRoot.addSubEquipment(computer1);
-    router2.addSubEquipment(computer2);
-    router2.addSubEquipment(router4);
-    router3.addSubEquipment(computer3);
-    router3.addSubEquipment(computer4);
-    router4.addSubEquipment(computer5);
-    router4.addSubEquipment(router5);
-    router5.addSubEquipment(computer6);
+    routerRoot.addSubEquipment(&router2);
+    routerRoot.addSubEquipment(&router3);
+    routerRoot.addSubEquipment(&computer1);
+    router2.addSubEquipment(&computer2);
+    router2.addSubEquipment(&router4);
+    router3.addSubEquipment(&computer3);
+    router3.addSubEquipment(&computer4);
+    router4.addSubEquipment(&computer5);
+    router4.addSubEquipment(&router5);
+    router5.addSubEquipment(&computer6);
 
 
 }

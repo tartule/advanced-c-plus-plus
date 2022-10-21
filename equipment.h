@@ -10,12 +10,12 @@ using namespace std;
 class Equipment {
 public:
     virtual void processMessage(string message) = 0;
-    virtual void addSubEquipment(Equipment *equipment) = 0;
-    virtual void removeSubEquipment(Equipment *equipment) = 0;
-    virtual void showSubEquipment() = 0;
+    /*virtual void addSubEquipment(Equipment *equipment){};
+    virtual void removeSubEquipment(Equipment *equipment){};
+    virtual void showSubEquipment(){};*/
     virtual bool isComposite() = 0;
     virtual string getIpAddress() = 0;
-    virtual ~Equipment() = default;
+    //virtual ~Equipment() = default;
 };
 
 
