@@ -14,11 +14,7 @@ Computer::~Computer(){
     std::cout << "Destroying a computer and its IpAddress is"  + this-> IpAddress << endl;
 }
 void Computer::processMessage(string message) {
-    if (message == this->IpAddress) {
-        std::cout << "I am " + message << endl;
-    } else {
-        std::cout << "I am not" + message << endl;
-    }
+    cout << IpAddress << "got a message" << message << endl;
 }
 
 bool Computer::isComposite(){
