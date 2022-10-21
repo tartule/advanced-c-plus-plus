@@ -10,10 +10,16 @@ Router::Router(string ipAddress) {
     std::cout << "Creating a new router which IpAddress is " + ipAddress << endl;
 }
 Router::~Router() {
+    for (auto equipment : subEquipments) {
+        delete equipment;
+    }
     std::cout << "Destroying a router which IpAddress is"  + this-> IpAddress << endl;
 }
 
 void Router::addSubEquipment(Equipment *equipment) {
+    if (find(begin(subEquipments), end(subEquipments), equipment) != end(subEquipments)) {
+        return;
+    }
     this -> subEquipments.push_back(equipment);
     if (equipment->isComposite()) {
         std::cout << "Adding a subRouter to router " + this -> IpAddress;
@@ -22,12 +28,17 @@ void Router::addSubEquipment(Equipment *equipment) {
     }
 }
 void Router::removeSubEquipment(Equipment *equipment) {
+    if (find(begin(subEquipments), end(subEquipments), equipment) == end(subEquipments)) {
+        return;
+    }
     this->subEquipments.remove(equipment);
+    
     if (equipment->isComposite()) {
         std::cout << "Removing a subRouter from router" + this -> IpAddress;
     } else {
         std::cout << "Removing a subComputer from" + this -> IpAddress;
     }
+    delete equipment;
 }
 
 bool Router::isComposite() {

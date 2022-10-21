@@ -15,6 +15,7 @@ public:
     virtual void showSubEquipment() = 0;
     virtual bool isComposite() = 0;
     virtual string getIpAddress() = 0;
+    virtual ~Equipment() = default;
 };
 
 
