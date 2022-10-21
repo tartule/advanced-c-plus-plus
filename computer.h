@@ -7,7 +7,13 @@
 #include "equipment.h"
 
 class Computer : public Equipment{
-
+private:
+    string IpAddress;
+public:
+    Computer(string ipAddress);
+    ~Computer();
+    void processMessage(string message) override final;
+    bool isComposite() override final;
 };
 
 

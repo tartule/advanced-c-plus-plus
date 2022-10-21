@@ -7,10 +7,11 @@
 
 
 class Equipment {
-    virtual void processMessage() = 0;
-    virtual void addSubEquipment() = 0;
-    virtual void removeSubEquipment() = 0;
+    virtual string processMessage(string message) = 0;
+    virtual void addSubEquipment(Equipment *equipment) = 0;
+    virtual void removeSubEquipment(Equipment *equipment) = 0;
     virtual void showSubEquipment() = 0;
+    virtual bool isComposite() = 0;
 };
 
 

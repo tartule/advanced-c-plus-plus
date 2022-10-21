@@ -3,3 +3,22 @@
 //
 
 #include "computer.h"
+#include "iostream"
+
+void Computer::Computer(string ipAddress) {
+    this-> IpAddress = ipAddress;
+    std::cout << "Creating a new computer and its IpAddress is " + ipAddress << endl;
+}
+
+void Computer::~Computer(){
+    std::cout << "Destroying a computer and its IpAddress is"  + this-> IpAddress << endl;
+}
+void Computer::processMessage(string message) {
+    if (message == this -> IpAddress) {
+        std::cout << "I am " + message << endl;
+    } else {
+        std::cout << "I am not" + message << endl;
+}
+bool Computer::isComposite(){
+    return false;
+}
