@@ -11,8 +11,9 @@ class Router : public Equipment{
 private:
     string IpAddress;
     std::list<Equipment *> subEquipments;
+    Router* rootNode;
 public:
-    Router(string ipAddress);
+    Router(string ipAddress, Router* rootNode);
     ~Router();
     void processMessage(string message) ;
     void addSubEquipment(Equipment *equipment) ;
@@ -20,6 +21,9 @@ public:
     void showSubEquipment() ;
     bool isComposite();
     string getIpAddress();
+    void showTree();
+    std::list<Equipment *> getChildren();
+    bool existInTree(Equipment*);
 };
 
 

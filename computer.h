@@ -9,12 +9,14 @@
 class Computer : public Equipment{
 private:
     string IpAddress;
+    Equipment* rootNode;
 public:
-    Computer(string ipAddress);
+    Computer(string ipAddress, Equipment* rootNode);
     ~Computer();
     void processMessage(string message) ;
     bool isComposite();
     string getIpAddress();
+    virtual bool existInTree(Equipment* new_equipment);
 };
 
 
