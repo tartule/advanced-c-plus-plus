@@ -10,7 +10,7 @@ Router::Router(string ipAddress) {
     std::cout << "Creating a new router which IpAddress is " + ipAddress << endl;
 }
 Router::~Router() {
-    std::cout << "Destroying a computer which IpAddress is"  + this-> IpAddress << endl;
+    std::cout << "Destroying a router which IpAddress is"  + this-> IpAddress << endl;
 }
 
 void Router::addSubEquipment(Equipment *equipment) {

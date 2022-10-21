@@ -7,7 +7,7 @@
 
 Computer::Computer(string ipAddress) {
     this-> IpAddress = ipAddress;
-    std::cout << "Creating a new computer and its IpAddress is " + ipAddress << endl;
+    std::cout << "Creating a new computer and its IpAddress is " + IpAddress << endl;
 }
 
 Computer::~Computer(){
