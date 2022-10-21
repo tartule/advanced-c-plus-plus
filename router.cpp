@@ -7,12 +7,12 @@ using namespace std;
 
 Router::Router(string ipAddress) {
     this -> IpAddress = ipAddress;
-    std::cout << "Creating a new router which IpAddress is " + ipAddress << endl;
+    std::cout << "Creating a new router which IpAddress is " + ipAddress +/  << endl;
 }
 Router::~Router() {
-    for (auto equipment : subEquipments) {
+    /*for (auto equipment : subEquipments) {
         delete equipment;
-    }
+    }*/
     std::cout << "Destroying a router which IpAddress is"  + this-> IpAddress << endl;
 }
 
@@ -38,7 +38,7 @@ void Router::removeSubEquipment(Equipment *equipment) {
     } else {
         std::cout << "Removing a subComputer from" + this -> IpAddress;
     }
-    delete equipment;
+    //delete equipment;
 }
 
 bool Router::isComposite() {
