@@ -29,15 +29,9 @@ In order to illustrate the disign pattern, we implemented a small local network,
 ![img_1.png](img_1.png)
 ## Quick Start
 
-``
-//TODO
-``
+The project was compiled using g++ (c++ 17). In order to compile the project, use the command `make main`. Then you can run the executable (using `./main` for linux) 
 
-##  Results
 
-``
-TODO
-``
 
 
 
