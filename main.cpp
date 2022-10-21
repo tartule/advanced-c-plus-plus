@@ -4,7 +4,7 @@
 using namespace std;
 
 int main() {
-    cout << "=======================Start========================";
+    cout << "=======================Start========================" << endl;
     Router routerRoot("192.168.1.1");
     Router router2("192.168.1.2");
     Router router3("192.168.1.3");
@@ -26,6 +26,8 @@ int main() {
     router4.addSubEquipment(&computer5);
     router4.addSubEquipment(&router5);
     router5.addSubEquipment(&computer6);
-
-
+    cout << "==============================================================Figure========================================================" << endl;
+    cout << "Router " + routerRoot.getIpAddress();
+    cout << routerRoot.showFigure() << endl;
+    cout << "==============================================================Figure========================================================" << endl;
 }

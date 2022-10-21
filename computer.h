@@ -15,6 +15,7 @@ public:
     void processMessage(string message) ;
     bool isComposite();
     string getIpAddress();
+    string showFigure();
 };
 
 

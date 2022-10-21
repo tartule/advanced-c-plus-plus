@@ -20,6 +20,7 @@ public:
     void showSubEquipment() ;
     bool isComposite();
     string getIpAddress();
+    string showFigure();
 };
 
 

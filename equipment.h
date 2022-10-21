@@ -16,6 +16,7 @@ public:
     virtual bool isComposite() = 0;
     virtual string getIpAddress() = 0;
     virtual ~Equipment(){};
+    virtual string showFigure() = 0;
 };
 
 

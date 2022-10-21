@@ -7,13 +7,13 @@ using namespace std;
 
 Router::Router(string ipAddress) {
     this -> IpAddress = ipAddress;
-    std::cout << "Creating a new router which IpAddress is " << ipAddress << std::endl;
+    std::cout << "Creating a new router whose IpAddress is " << ipAddress << std::endl;
 }
 Router::~Router() {
     /*for (auto equipment : subEquipments) {
         delete equipment;
     }*/
-    std::cout << "Destroying a router which IpAddress is "  + this-> IpAddress << std::endl;
+    std::cout << "Destroying a router whose IpAddress is "  + this-> IpAddress << std::endl;
 }
 
 void Router::addSubEquipment(Equipment *equipment) {
@@ -59,4 +59,25 @@ void Router::showSubEquipment() {
 }
 string Router::getIpAddress() {
     return this -> IpAddress;
+}
+
+string Router::showFigure() {
+    string result;
+    for (Equipment *e : subEquipments) {
+        if (e == subEquipments.back()) {
+            if (e->isComposite()) {
+                result = result + " Router " + e->getIpAddress() + e->showFigure();
+            } else {
+                result = result + e -> showFigure();
+            }
+        } else {
+            if (e->isComposite()) {
+                result = result + "Router " + e->getIpAddress() + e->showFigure() + " + ";
+            } else {
+                result = result + e -> showFigure() + " + ";
+            }
+        }
+    }
+
+    return " -> Branch" + (string)"\n" + (string)"(" +result + (string)")";
 }
