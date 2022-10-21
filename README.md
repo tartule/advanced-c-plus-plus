@@ -2,27 +2,29 @@
 This is a mini C++ project where we simulated a local internet messaging system by using composite design pattern.
 
 ## Composite Pattern
-'* Why does it exist?'
+### Why does it exist?
 
 When dealing with <g> Tree-structured data <\g>, one difficulty is that branches and leaves are treated differently, which causes more errors. The solution is an interface that allows treating complex and primitive objects uniformly.
 
-'* What is it used for?'
+### What is it used for ?
+ 
 
 Solve recurring design problems by designing flexible and reusable object-oriented software, that is, objects that are easier to implement, change, test, and reuse.
 
-'* Definition:'
+### Definition:
 The composite pattern describes a group of objects that are treated the same way as a single instance of the same type of object. 
 
-'* Generic UML'<br />
+### Generic UML
 ![img.png](img.png)
 
 
 ## Our implementation :
 In order to illustrate the disign pattern, we implemented a small local network, with sevral equipement (computer and router). Each router is linked to sevral equipement. When an equipement receive the order to processe a message, if it is a computer, it displays it, and if it is a router, it orders to each linked equipement to process the message. <br />
-  '* UML Diagram of the implementation : ' 
-  <br />
+### UML Diagram of the implementation : 
+
 ![img_1.png](img_1.png)
-   '* Sequence Diagram of the implementation :'
+
+### Sequence Diagram of the implementation :
   <br />
 
 ![img_1.png](img_1.png)
