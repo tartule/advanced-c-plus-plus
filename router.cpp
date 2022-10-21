@@ -45,6 +45,7 @@ void Router::addSubEquipment(Equipment *equipment) {
         std::cout << "Adding a subComputer to router " + this -> IpAddress << std::endl;
     }
 }
+
 void Router::removeSubEquipment(Equipment *equipment) {
     if (find(begin(subEquipments), end(subEquipments), equipment) == end(subEquipments)) {
         return;
@@ -56,7 +57,6 @@ void Router::removeSubEquipment(Equipment *equipment) {
     } else {
         std::cout << "Removing a subComputer from" + this -> IpAddress << endl;
     }
-    //delete equipment;
 }
 
 bool Router::isComposite() {
@@ -79,29 +79,51 @@ void Router::showSubEquipment() {
         }
         
     }
-    //cout << endl;
 }
+
 string Router::getIpAddress() {
     return this -> IpAddress;
 }
 
-string Router::showFigure() {
+string Router::showFigure(int deep) {
     string result;
     for (Equipment *e : subEquipments) {
         if (e == subEquipments.back()) {
             if (e->isComposite()) {
-                result = result + " Router " + e->getIpAddress() + e->showFigure();
+                result = result + " Router " + e->getIpAddress() + e->showFigure(deep+1);
             } else {
-                result = result + e -> showFigure();
+                result = result + e -> showFigure(deep+1);
             }
         } else {
             if (e->isComposite()) {
-                result = result + "Router " + e->getIpAddress() + e->showFigure() + " + ";
+                result = result + "Router " + e->getIpAddress() + e->showFigure(deep+1) + " + ";
             } else {
-                result = result + e -> showFigure() + " + ";
+                result = result + e -> showFigure(deep+1) + " + ";
             }
         }
     }
 
-    return " -> Branch" + (string)"\n" + (string)"(" +result + (string)")";
+    string space(deep*2, ' ');
+
+    return " -> Branch" + (string)"\n" + space  + (string)"(" +result + (string)")";
+}
+
+void Router::display(){
+    display(this, "", "");
+} 
+
+void Router::display(Equipment *e, string r, string p) {
+    string rs = "Router " + this->getIpAddress();
+    cout << r << rs << endl;
+    for (Equipment *e : subEquipments) {
+        string rr = p + '|' + string(rs.length(), '-') + ' ';
+        string pp = p + string(rs.length()+1, ' ');
+        if(pp[0] != '|') pp = '|' + pp;
+        e->display(e, rr, pp);
+    }
+}
+
+ostream &operator<<(std::ostream& flot , const Router& p){
+    flot << "Router :" << p.IpAddress << " ";
+    return flot ;
 }

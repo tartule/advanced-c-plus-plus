@@ -10,6 +10,9 @@ class Computer : public Equipment{
 private:
     string IpAddress;
     Equipment* rootNode;
+
+    bool animation;
+    bool got_msg;
 public:
     Computer(string ipAddress, Equipment* rootNode);
     ~Computer();
@@ -17,7 +20,10 @@ public:
     bool isComposite();
     string getIpAddress();
     virtual bool existInTree(Equipment* new_equipment);
-    string showFigure();
+    string showFigure(int deep);
+    void display(Equipment *e, string r, string p);
+
+    friend std::ostream& operator<< (std::ostream& flot , const Computer& p);
 };
 
 

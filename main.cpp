@@ -39,6 +39,10 @@ int main() {
     router4.addSubEquipment(&router5);
     router5.addSubEquipment(&computer6);
 
+    cout << "==============================================================BeforeSendingMsg========================================================" << endl;
+    routerRoot.display();
+    cout << "==============================================================BeforeSendingMsg========================================================" << endl;
+
     string broadcast_message = "hello world";
     routerRoot.processMessage(broadcast_message);
 
@@ -50,9 +54,9 @@ int main() {
     router5.showSubEquipment();
     cout << endl;
 
-    cout << "==============================================================Figure========================================================" << endl;
-    cout << "Router " + routerRoot.getIpAddress();
-    cout << routerRoot.showFigure() << endl;
-    cout << "==============================================================Figure========================================================" << endl;
+
+    cout << "==============================================================AfterSendingMsg========================================================" << endl;
+    routerRoot.display();
+    cout << "==============================================================AfterSendingMsg========================================================" << endl;
 
 }
