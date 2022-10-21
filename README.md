@@ -14,10 +14,12 @@ Solve recurring design problems by designing flexible and reusable object-orient
 The composite pattern describes a group of objects that are treated the same way as a single instance of the same type of object. 
 
 '* Generic UML
-![img_1.png](img_1.png)
+![img.png](img.png)
+
+
 
 ## Requirement (delete when finished)
-
+![img_1.png](img_1.png)
 ## Quick Start
 
 ``
@@ -35,7 +37,5 @@ TODO
 ## References
 
 ### Composite design pattern
-
-![img.png](img.png)
 
 
