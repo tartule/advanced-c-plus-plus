@@ -13,15 +13,17 @@ Solve recurring design problems by designing flexible and reusable object-orient
 '* Definition:'
 The composite pattern describes a group of objects that are treated the same way as a single instance of the same type of object. 
 
-'* Generic UML'
+'* Generic UML'<br />
 ![img.png](img.png)
 
 
 ## Our implementation :
 In order to illustrate the disign pattern, we implemented a small local network, with sevral equipement (computer and router). Each router is linked to sevral equipement. When an equipement receive the order to processe a message, if it is a computer, it displays it, and if it is a router, it orders to each linked equipement to process the message. <br />
-  '* UML Diagram of the implementation : <br />'
+  '* UML Diagram of the implementation : ' 
+  <br />
 ![img_1.png](img_1.png)
-   '* Sequence Diagram of the implementation : <br />'
+   '* Sequence Diagram of the implementation :'
+  <br />
 
 ![img_1.png](img_1.png)
   
