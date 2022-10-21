@@ -10,14 +10,16 @@
 class Router : public Equipment{
 private:
     string IpAddress;
-    std::list<Equipment *> subEquipments
+    std::list<Equipment *> subEquipments;
 public:
     Router(string ipAddress);
     ~Router();
-    string processMessage(string message) override final;
-    void addSubEquipment(Equipment *equipment) override final;
-    void removeSubEquipment(Equipment *equipment) override final;
-    void showSubEquipment() override final;
+    void processMessage(string message) ;
+    void addSubEquipment(Equipment *equipment) ;
+    void removeSubEquipment(Equipment *equipment) ;
+    void showSubEquipment() ;
+    bool isComposite();
+    string getIpAddress();
 };
 
 

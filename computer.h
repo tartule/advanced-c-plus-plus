@@ -12,8 +12,9 @@ private:
 public:
     Computer(string ipAddress);
     ~Computer();
-    void processMessage(string message) override final;
-    bool isComposite() override final;
+    void processMessage(string message) ;
+    bool isComposite();
+    string getIpAddress();
 };
 
 

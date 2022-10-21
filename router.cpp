@@ -1,8 +1,10 @@
 //
 // Created by 秦梓烈 on 14/10/2022.
 //
-
+#include <iostream>
 #include "router.h"
+using namespace std;
+
 Router::Router(string ipAddress) {
     this -> IpAddress = ipAddress;
     std::cout << "Creating a new router which IpAddress is " + ipAddress << endl;
@@ -12,7 +14,7 @@ Router::~Router() {
 }
 
 void Router::addSubEquipment(Equipment *equipment) {
-    this->subEquipments.push_back(equipment);
+    this -> subEquipments.push_back(equipment);
     if (equipment->isComposite()) {
         std::cout << "Adding a subRouter to router " + this -> IpAddress;
     } else {
@@ -33,7 +35,17 @@ bool Router::isComposite() {
 }
 
 void Router::processMessage(string message) {
-    for (const Equipment *e: subEquipments) {
+    for (Equipment *e: subEquipments) {
         e->processMessage(message);
     }
+}
+
+void Router::showSubEquipment() {
+    cout << "My subEquipments are" << endl;
+    for (Equipment *e: subEquipments) {
+        cout << e -> getIpAddress() + " ";
+    }
+}
+string Router::getIpAddress() {
+    return this -> IpAddress;
 }
