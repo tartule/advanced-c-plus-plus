@@ -17,6 +17,7 @@ public:
     bool isComposite();
     string getIpAddress();
     virtual bool existInTree(Equipment* new_equipment);
+    string showFigure();
 };
 
 

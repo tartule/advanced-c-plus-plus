@@ -21,9 +21,8 @@ public:
     void showSubEquipment() ;
     bool isComposite();
     string getIpAddress();
-    void showTree();
-    std::list<Equipment *> getChildren();
     bool existInTree(Equipment*);
+    string showFigure();
 };
 
 

@@ -8,15 +8,13 @@
 #include <unordered_set>
 using namespace std;
 
+
 Router::Router(string ipAddress, Router* rootNode):rootNode(rootNode) {
     this->IpAddress = ipAddress;
     std::cout << "Creating a new router whose IP address is " << ipAddress << std::endl;
 }
 Router::~Router() {
-    /*for (auto equipment : subEquipments) {
-        delete equipment;
-    }*/
-    //std::cout << "Destroying a router whose IP address is "  + this-> IpAddress << std::endl;
+
 }
 
 // root->existInTree();
@@ -34,49 +32,7 @@ bool Router::existInTree(Equipment* new_equipment) {
     return exist;
 }
 
-//bool Router::existInTree(Equipment* root, Equipment* equipment) {
-    // if (!root->isComposite()) {
-    //     if (root->getIpAddress() == equipment->getIpAddress()) {
-    //         return true;
-    //     } else {
-    //         return false;
-    //     }
-    // } else if (root->getIpAddress() == equipment->getIpAddress()) {
-    //     return true;
-    // }
-    // bool exist;
-    // exist = existInTree(root->equipment); // subEquipments
- 
-    // return exist;
-
-    // for (Equipment* e : subEquipments){
-    //     if(e->existInTree(equipment)){
-    //         return true;
-    //     }
-    // }
-//}
-
-// root->existInTree(root, );
-/*bool Router::existInTree1(Equipment* new_equipment) {
-    if (this->getIpAddress() == new_equipment->getIpAddress()) {
-        return true;
-    } 
-    for (Equipment* e : this->subEquipments){    
-        if(e->existInTree1(new_equipment))
-            return true;
-    }
-    return false;
-}*/
-
-
 void Router::addSubEquipment(Equipment *equipment) {
-    /*if (find(begin(subEquipments), end(subEquipments), equipment) != end(subEquipments)) {
-        return;
-    }*/
-
-    // bool existAlready = root->existInTree();
-
-    //bool existAlready = existInTree(rootNode, equipment);
     bool existAlready = rootNode->existInTree(equipment);
     if (existAlready) {
         cout << "exist already" << endl;
@@ -129,23 +85,23 @@ string Router::getIpAddress() {
     return this -> IpAddress;
 }
 
-void Router::showTree() {
-    // show root
-    //cout << endl;
-    /*if (this->isComposite()) {
-        cout << "router : " << IpAddress << endl;
-    } else {
-        cout << "computer : " << IpAddress << endl;
-        return;
-    }
-    
-    for (auto child : subEquipments) {
-        if (child->isComposite()) {
-            //cout << "router : " << child->getIpAddress() << endl; 
-            child->showTree();
+string Router::showFigure() {
+    string result;
+    for (Equipment *e : subEquipments) {
+        if (e == subEquipments.back()) {
+            if (e->isComposite()) {
+                result = result + " Router " + e->getIpAddress() + e->showFigure();
+            } else {
+                result = result + e -> showFigure();
+            }
         } else {
-            cout << "computer : " << child->getIpAddress() << endl;
+            if (e->isComposite()) {
+                result = result + "Router " + e->getIpAddress() + e->showFigure() + " + ";
+            } else {
+                result = result + e -> showFigure() + " + ";
+            }
         }
-    }*/
+    }
 
+    return " -> Branch" + (string)"\n" + (string)"(" +result + (string)")";
 }

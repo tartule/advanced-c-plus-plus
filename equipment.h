@@ -21,8 +21,9 @@ public:
     virtual void addSubEquipment(Equipment *equipment){} ;
     virtual void removeSubEquipment(Equipment *equipment){} ;
     virtual void showSubEquipment(){} ;
-    virtual void showTree(){};
     virtual bool existInTree(Equipment *equipment)= 0;
+    virtual string showFigure() = 0;
+
 };
 
 

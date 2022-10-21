@@ -8,7 +8,7 @@
 Computer::Computer(string ipAddress, Equipment* rootNode) {
     this->rootNode = rootNode;
     this-> IpAddress = ipAddress;
-    std::cout << "Creating a new computer and its IpAddress is " + IpAddress << endl;
+    std::cout << "Creating a new computer whose IpAddress is " + IpAddress << endl;
 }
 
 Computer::~Computer(){
@@ -32,4 +32,8 @@ bool Computer::existInTree(Equipment* new_equipment) {
         return true;
     } 
     return false;
+}
+
+string Computer::showFigure() {
+    return "Computer " +getIpAddress();
 }

@@ -49,5 +49,10 @@ int main() {
     router4.showSubEquipment();
     router5.showSubEquipment();
     cout << endl;
-    routerRoot.showTree();
+
+    cout << "==============================================================Figure========================================================" << endl;
+    cout << "Router " + routerRoot.getIpAddress();
+    cout << routerRoot.showFigure() << endl;
+    cout << "==============================================================Figure========================================================" << endl;
+
 }
