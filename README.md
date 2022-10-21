@@ -11,16 +11,16 @@ When dealing with <g> Tree-structured data <\g>, one difficulty is that branches
 
 Solve recurring design problems by designing flexible and reusable object-oriented software, that is, objects that are easier to implement, change, test, and reuse.
 
-### Definition:
+1. Definition:
 The composite pattern describes a group of objects that are treated the same way as a single instance of the same type of object. 
 
-### Generic UML
+2. Generic UML
 ![img.png](img.png)
 
 
-## Our implementation :
+3. Our implementation :
 In order to illustrate the disign pattern, we implemented a small local network, with sevral equipement (computer and router). Each router is linked to sevral equipement. When an equipement receive the order to processe a message, if it is a computer, it displays it, and if it is a router, it orders to each linked equipement to process the message. <br />
-### UML Diagram of the implementation : 
+4. UML Diagram of the implementation : 
 
 ![img_1.png](img_1.png)
 
