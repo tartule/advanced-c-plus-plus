@@ -81,24 +81,17 @@ string Router::getIpAddress() {
 
 string Router::getNetworkSummary(int deep) {
     string result;
+    result=result+ " Router " + this->getIpAddress();
     for (Equipment *e : subEquipments) {
-        if (e == subEquipments.back()) {
-            if (e->isComposite()) {
-                result = result + " Router " + e->getIpAddress() + e->getNetworkSummary(deep+1);
-            } else {
-                result = result + e -> getNetworkSummary(deep+1);
-            }
-        } else {
-            if (e->isComposite()) {
-                result = result + "Router " + e->getIpAddress() + e->getNetworkSummary(deep+1) + " + ";
-            } else {
-                result = result + e -> getNetworkSummary(deep+1) + " + ";
-            }
+        result=result+ e->getNetworkSummary(deep+1);
+
+        //add + if e is not the last in list
+        if (e != subEquipments.back()){
+            result=result+" + ";
         }
     }
 
     string space(deep*2, ' ');
-
     return " -> Branch" + (string)"\n" + space  + (string)"(" +result + (string)")";
 }
 string Router::getName(){
