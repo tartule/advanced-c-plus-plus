@@ -40,10 +40,7 @@ string Computer::getIpAddress() {
 
 // // root->existInTree(root, );
 bool Computer::existInTree(Equipment* new_equipment) {
-    if (this->getIpAddress() == new_equipment->getIpAddress()) {
-        return true;
-    } 
-    return false;
+    return this->getIpAddress() == new_equipment->getIpAddress();
 }
 
 string Computer::showFigure(int deep) {
@@ -53,6 +50,10 @@ string Computer::showFigure(int deep) {
 void Computer::display(Equipment *e, string r, string p){
     string msg = (this->got_msg) ? "*" : "";
     cout << r << "Computer" << msg << " " << this->IpAddress << endl;
+}
+
+string Computer::get_name(){
+    return "Computer";
 }
 
 std::ostream& operator<< (std::ostream& flot , const Computer& p){

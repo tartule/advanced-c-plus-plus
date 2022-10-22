@@ -25,6 +25,7 @@ public:
     string showFigure(int deep);
     
     void display();
+    string get_name();
 
     friend std::ostream& operator<< (std::ostream& flot , const Router& p);
 

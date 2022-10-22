@@ -39,11 +39,10 @@ void Router::addSubEquipment(Equipment *equipment) {
         return;
     }
     this -> subEquipments.push_back(equipment);
-    if (equipment->isComposite()) {
-        std::cout << "Adding a subRouter to router " + this -> IpAddress << std::endl;
-    } else {
-        std::cout << "Adding a subComputer to router " + this -> IpAddress << std::endl;
-    }
+    string equipementName=equipment->get_name();
+    equipementName[0]=(char) std::toupper(equipementName[0]);//convert the first letter to upper case
+    std::cout << "Adding a sub"<<equipementName<<" to router" + this -> IpAddress << endl;
+
 }
 
 void Router::removeSubEquipment(Equipment *equipment) {
@@ -51,12 +50,10 @@ void Router::removeSubEquipment(Equipment *equipment) {
         return;
     }
     this->subEquipments.remove(equipment);
-    
-    if (equipment->isComposite()) {
-        std::cout << "Removing a subRouter from router" + this -> IpAddress << endl;
-    } else {
-        std::cout << "Removing a subComputer from" + this -> IpAddress << endl;
-    }
+    string equipementName=equipment->get_name();
+    equipementName[0]=(char) std::toupper(equipementName[0]);//convert the first letter to upper case
+    std::cout << "Removing a sub"<<equipementName<<" from router" + this -> IpAddress << endl;
+
 }
 
 bool Router::isComposite() {
@@ -72,12 +69,7 @@ void Router::processMessage(string message) {
 void Router::showSubEquipment() {
     cout << IpAddress << ": My subequipments are" << endl;
     for (Equipment *e: subEquipments) {
-        if (e->isComposite()) {
-            cout << "router : " << e->getIpAddress() << endl;
-        } else {
-            cout << "computer : " << e -> getIpAddress() << endl;
-        }
-        
+        cout << e->get_name() << e -> getIpAddress() << endl;
     }
 }
 
@@ -106,6 +98,9 @@ string Router::showFigure(int deep) {
     string space(deep*2, ' ');
 
     return " -> Branch" + (string)"\n" + space  + (string)"(" +result + (string)")";
+}
+string Router::get_name(){
+    return "router";
 }
 
 void Router::display(){

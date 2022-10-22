@@ -22,7 +22,7 @@ public:
     virtual bool existInTree(Equipment* new_equipment);
     string showFigure(int deep);
     void display(Equipment *e, string r, string p);
-
+    string get_name();
     friend std::ostream& operator<< (std::ostream& flot , const Computer& p);
 };
 

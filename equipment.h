@@ -25,6 +25,7 @@ public:
     virtual string showFigure(int deep) = 0;
 
     virtual void display(Equipment *e, string r, string p) = 0;
+    virtual string get_name()=0;
 };
 
 
