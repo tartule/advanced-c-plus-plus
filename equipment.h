@@ -22,10 +22,10 @@ public:
     virtual void removeSubEquipment(Equipment *equipment){} ;
     virtual void showSubEquipment(){} ;
     virtual bool existInTree(Equipment *equipment)= 0;
-    virtual string showFigure(int deep) = 0;
+    virtual string getNetworkSummary(int deep) = 0;
 
-    virtual void display(Equipment *e, string r, string p) = 0;
-    virtual string get_name()=0;
+    virtual void display(Equipment *e, string prefix_son, string prefix_descendant) = 0;
+    virtual string getName()=0;
 };
 
 

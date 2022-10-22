@@ -39,7 +39,7 @@ void Router::addSubEquipment(Equipment *equipment) {
         return;
     }
     this -> subEquipments.push_back(equipment);
-    string equipementName=equipment->get_name();
+    string equipementName=equipment->getName();
     equipementName[0]=(char) std::toupper(equipementName[0]);//convert the first letter to upper case
     std::cout << "Adding a sub"<<equipementName<<" to router" + this -> IpAddress << endl;
 
@@ -50,7 +50,7 @@ void Router::removeSubEquipment(Equipment *equipment) {
         return;
     }
     this->subEquipments.remove(equipment);
-    string equipementName=equipment->get_name();
+    string equipementName=equipment->getName();
     equipementName[0]=(char) std::toupper(equipementName[0]);//convert the first letter to upper case
     std::cout << "Removing a sub"<<equipementName<<" from router" + this -> IpAddress << endl;
 
@@ -69,7 +69,7 @@ void Router::processMessage(string message) {
 void Router::showSubEquipment() {
     cout << IpAddress << ": My subequipments are" << endl;
     for (Equipment *e: subEquipments) {
-        cout << e->get_name() << e -> getIpAddress() << endl;
+        cout << e->getName() << e -> getIpAddress() << endl;
     }
 }
 
@@ -77,20 +77,20 @@ string Router::getIpAddress() {
     return this -> IpAddress;
 }
 
-string Router::showFigure(int deep) {
+string Router::getNetworkSummary(int deep) {
     string result;
     for (Equipment *e : subEquipments) {
         if (e == subEquipments.back()) {
             if (e->isComposite()) {
-                result = result + " Router " + e->getIpAddress() + e->showFigure(deep+1);
+                result = result + " Router " + e->getIpAddress() + e->getNetworkSummary(deep+1);
             } else {
-                result = result + e -> showFigure(deep+1);
+                result = result + e -> getNetworkSummary(deep+1);
             }
         } else {
             if (e->isComposite()) {
-                result = result + "Router " + e->getIpAddress() + e->showFigure(deep+1) + " + ";
+                result = result + "Router " + e->getIpAddress() + e->getNetworkSummary(deep+1) + " + ";
             } else {
-                result = result + e -> showFigure(deep+1) + " + ";
+                result = result + e -> getNetworkSummary(deep+1) + " + ";
             }
         }
     }
@@ -99,7 +99,7 @@ string Router::showFigure(int deep) {
 
     return " -> Branch" + (string)"\n" + space  + (string)"(" +result + (string)")";
 }
-string Router::get_name(){
+string Router::getName(){
     return "router";
 }
 
@@ -107,14 +107,16 @@ void Router::display(){
     display(this, "", "");
 } 
 
-void Router::display(Equipment *e, string r, string p) {
+void Router::display(Equipment *e, string prefix_son, string prefix_descendant) {
     string rs = "Router " + this->getIpAddress();
-    cout << r << rs << endl;
+    cout << prefix_son << rs << endl;//is a direct son of parent
     for (Equipment *e : subEquipments) {
-        string rr = p + '|' + string(rs.length(), '-') + ' ';
-        string pp = p + string(rs.length()+1, ' ');
-        if(pp[0] != '|') pp = '|' + pp;
-        e->display(e, rr, pp);
+        string new_prefix_son = prefix_descendant + '|' + string(rs.length(), '-') + ' ';
+        string new_prefix_descendant = prefix_descendant + string(rs.length()+1, ' ');
+        
+        //make sure that the first line always is | (only works for first iteration)
+        if(new_prefix_descendant[0] != '|') new_prefix_descendant = '|' + new_prefix_descendant;
+        e->display(e, new_prefix_son, new_prefix_descendant);
     }
 }
 

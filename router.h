@@ -22,15 +22,15 @@ public:
     bool isComposite();
     string getIpAddress();
     bool existInTree(Equipment*);
-    string showFigure(int deep);
+    string getNetworkSummary(int deep);
     
     void display();
-    string get_name();
+    string getName();
 
     friend std::ostream& operator<< (std::ostream& flot , const Router& p);
 
 private:
-    void display(Equipment *e, string r, string p);
+    void display(Equipment *e, string for_son, string p);
 };
 
 

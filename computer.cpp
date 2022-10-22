@@ -43,16 +43,16 @@ bool Computer::existInTree(Equipment* new_equipment) {
     return this->getIpAddress() == new_equipment->getIpAddress();
 }
 
-string Computer::showFigure(int deep) {
+string Computer::getNetworkSummary(int deep) {
     return "Computer " + getIpAddress();
 }
 
-void Computer::display(Equipment *e, string r, string p){
+void Computer::display(Equipment *e, string prefix_son, string prefix_descendant){
     string msg = (this->got_msg) ? "*" : "";
-    cout << r << "Computer" << msg << " " << this->IpAddress << endl;
+    cout << prefix_son << "Computer" << msg << " " << this->IpAddress << endl;
 }
 
-string Computer::get_name(){
+string Computer::getName(){
     return "Computer";
 }
 
