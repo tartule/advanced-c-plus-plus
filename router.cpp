@@ -24,12 +24,14 @@ bool Router::existInTree(Equipment* new_equipment) {
     if (this->getIpAddress() == new_equipment->getIpAddress()) {
         return true;
     } 
-    bool exist;
+    
     for (Equipment* e : this->subEquipments){
-        exist = e->existInTree(new_equipment);
+        if (e->existInTree(new_equipment)){
+            return true;
+        }
     }
 
-    return exist;
+    return false;
 }
 
 void Router::addSubEquipment(Equipment *equipment) {
