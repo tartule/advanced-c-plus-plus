@@ -23,7 +23,7 @@ Generic UML <br />
 In order to illustrate the disign pattern, we implemented a small local network, with sevral equipement (computer and router). Each router is linked to sevral equipement. When an equipement receive the order to processe a message, if it is a computer, it displays it, and if it is a router, it orders to each linked equipement to process the message. <br />
 1. UML Diagram of our implementation : 
 
-![UML Diagram.png](UML%20Diagram.png)
+![UML Diagram.png](UML%20diagram.png)
 
 2. Sequence Diagram of the implementation :
   <br />
@@ -40,7 +40,7 @@ The project was compiled using g++ (c++ 17). In order to compile the project, us
 ## What Can the program do : 
 
 1. print a summary of the local network :
-![network%20structure.png](network structure.png)
+![network structure.png](network%20structure.png)
 
 2. Simulate a broadcasting operation
 
