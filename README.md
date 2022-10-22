@@ -28,7 +28,7 @@ In order to illustrate the disign pattern, we implemented a small local network,
 2. Sequence Diagram of the implementation :
   <br />
 
-![Sequence diagram.png](Sequence%20diagram.png)
+![Sequence diagram.png](Sequence%20diagram.jpg)
   
 ## Requirement (delete when finished)
 ![img_1.png](img_1.png)
